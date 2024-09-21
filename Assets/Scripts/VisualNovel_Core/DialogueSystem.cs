@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+namespace DIALOGUE { 
 public class DialogueSystem : MonoBehaviour
 {
     public DialogueContainer dialogueContainer = new DialogueContainer();
@@ -32,4 +33,5 @@ public class DialogueSystem : MonoBehaviour
     {
         
     }
+}
 }
