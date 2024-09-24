@@ -23,7 +23,8 @@ namespace TESTING
         {
             ds = DialogueSystem.instance;
             architect = new TextArchitect(ds.dialogueContainer.dialogueText);
-            architect.buildMethod = TextArchitect.BuildMethod.instant;
+            architect.buildMethod = TextArchitect.BuildMethod.typewriter;
+            architect.speed = 0.5f;
         }
 
         // Update is called once per frame
@@ -31,7 +32,19 @@ namespace TESTING
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                architect.Build(lines[Random.Range(0, lines.Length)]);
+                if(architect.isBuilding)
+                {
+                    if(!architect.hurryUp)
+                        architect.hurryUp = true;
+                    else
+                        architect.ForceComplete();
+                }
+                else 
+                    architect.Build(lines[Random.Range(0, lines.Length)]);
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                architect.Append(lines[Random.Range(0, lines.Length)]);
             }
         }
     }

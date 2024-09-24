@@ -99,6 +99,22 @@ public class TextArchitect
     private void OnComplete()
     {
         BuildProcess = null;
+        hurryUp = false;
+    }
+
+    public void ForceComplete()
+    {
+        switch (buildMethod)
+        {
+            case BuildMethod.typewriter:
+                tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
+                break;
+            case BuildMethod.fade:
+                break;
+        }
+
+        Stop();
+        OnComplete();
     }
 
     private void Prepare()
@@ -127,7 +143,18 @@ public class TextArchitect
     }
     private void Prepare_TypeWriter()
     {
+        tmpro.color = tmpro.color; //force it to reinitialize
+        tmpro.maxVisibleCharacters = 0; //show 0 characters at first
+        tmpro.text = preText;
 
+        if(preText != "")
+        {
+            tmpro.ForceMeshUpdate();
+            tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
+        }
+
+        tmpro.text += targetText;
+        tmpro.ForceMeshUpdate();
     }
     private void Prepare_Fade()
     {
@@ -136,7 +163,12 @@ public class TextArchitect
 
     private IEnumerator Build_TypeWriter()
     {
-        yield return null;
+        while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount)
+        {
+            tmpro.maxVisibleCharacters += hurryUp ? charactersPerCycle * 5 : charactersPerCycle;
+
+            yield return new WaitForSeconds(0.015f / speed);
+        }
     }
 
     private IEnumerator Build_Fade()
