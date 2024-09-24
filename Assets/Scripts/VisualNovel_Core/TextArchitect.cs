@@ -1,52 +1,46 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEditor.AssetImporters;
-using DIALOGUE;
-public class TextArchitect
+using System.Runtime.CompilerServices;
+
+public class TextArchitect 
 {
     private TextMeshProUGUI tmpro_ui;
-    private TextMeshPro tmpro_world;
+    private TextMeshPro tmpro_world; //world space 3d text
     public TMP_Text tmpro => tmpro_ui != null ? tmpro_ui : tmpro_world;
 
     public string currentText => tmpro.text;
     public string targetText { get; private set; } = "";
-    public string preText { get; private set; } = ""; //store the current text before the target text
+    public string preText { get; private set; } = ""; //store the text before the current text
     private int preTextLength = 0;
 
     public string fullTargetText => preText + targetText;
 
-    public enum BuildMethod { instant, typewriter, fade }
+    public enum BuildMethod { instant, typewriter, fade };
     public BuildMethod buildMethod = BuildMethod.typewriter;
 
-    public Color textColor { get { return tmpro.color; } set { tmpro.color = value; } } //get and set the color of the text
+    public Color textColor { get { return tmpro.color; } set { tmpro.color = value; } }
 
+    //speed of typewriter or fade
     public float speed { get { return baseSpeed * speedMultiplier; } set { speedMultiplier = value; } }
-    public const float baseSpeed = 1; //speed of the typewriter effect
-    private float speedMultiplier = 1; //speed multiplier of the typewriter effect
+    private const float baseSpeed = 1;
+    private float speedMultiplier = 1;
 
-    public int characterPerCycle { get { return speed <= 2f ? characterMulitiplier : speed <= 2.5f ? characterMulitiplier * 2 : characterMulitiplier * 3; } }
-    private int characterMulitiplier = 1;
+    public int charactersPerCycle { get { return speed <= 2f ? characterMuiltiplier : speed <= 2.5f ? characterMuiltiplier * 2 : characterMuiltiplier * 3; } }
+    private int characterMuiltiplier = 1;
 
     public bool hurryUp = false;
 
     public TextArchitect(TextMeshProUGUI tmpro_ui)
     {
         this.tmpro_ui = tmpro_ui;
-
     }
+
     public TextArchitect(TextMeshPro tmpro_world)
     {
         this.tmpro_world = tmpro_world;
     }
 
-
-
-    /// <summary>
-    /// append text to what is already in the text architect
-    /// </summary>
-    /// <param name="text"></param>
-    /// <returns></returns>
     public Coroutine Build(string text)
     {
         preText = "";
@@ -54,10 +48,15 @@ public class TextArchitect
 
         Stop();
 
-        buildProcess = tmpro.StartCoroutine(Building());
-        return buildProcess;
+        BuildProcess = tmpro.StartCoroutine(Building());
+        return BuildProcess;
     }
 
+    /// <summary>
+    /// append text to what is already displayed.
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
     public Coroutine Append(string text)
     {
         preText = tmpro.text;
@@ -65,21 +64,19 @@ public class TextArchitect
 
         Stop();
 
-        buildProcess = tmpro.StartCoroutine(Building());
-        return buildProcess;
+        BuildProcess = tmpro.StartCoroutine(Building());
+        return BuildProcess;
     }
 
-    private Coroutine buildProcess = null;
-    public bool isBuilding => buildProcess != null;
+    private Coroutine BuildProcess = null;
+    public bool isBuilding => BuildProcess != null;
 
     public void Stop()
     {
-        if (!isBuilding)
-        {
-            return;
-        }
-        tmpro.StopCoroutine(buildProcess);
-        buildProcess = null;
+        if(!isBuilding) return;
+
+        tmpro.StopCoroutine(BuildProcess);
+        BuildProcess = null;
     }
 
     IEnumerator Building()
@@ -89,46 +86,30 @@ public class TextArchitect
         switch (buildMethod)
         {
             case BuildMethod.typewriter:
-                yield return Build_Typewriter();
+                yield return Build_TypeWriter();
                 break;
             case BuildMethod.fade:
                 yield return Build_Fade();
                 break;
         }
+
         OnComplete();
     }
 
     private void OnComplete()
     {
-        buildProcess = null; //stop trying to build text
-        hurryUp = false;
-    }
-
-    public void ForceComplete()
-    {
-        switch (buildMethod)
-        {
-            case BuildMethod.typewriter:
-                tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
-                break;
-            case BuildMethod.fade:
-                tmpro.ForceMeshUpdate();
-                break;
-        }
-
-        Stop();
-        OnComplete();
+        BuildProcess = null;
     }
 
     private void Prepare()
     {
-        switch (buildMethod)
+        switch(buildMethod)
         {
             case BuildMethod.instant:
                 Prepare_Instant();
                 break;
             case BuildMethod.typewriter:
-                Prepare_Typewriter();
+                Prepare_TypeWriter();
                 break;
             case BuildMethod.fade:
                 Prepare_Fade();
@@ -138,131 +119,28 @@ public class TextArchitect
 
     private void Prepare_Instant()
     {
-        tmpro.color = tmpro.color;
+        tmpro.color = tmpro.color; //force it to reinitialize
         tmpro.text = fullTargetText;
-        tmpro.ForceMeshUpdate();
+        tmpro.ForceMeshUpdate(); //udpate the change
         tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount; //show all characters
-    }
 
-    private void Prepare_Typewriter()
+    }
+    private void Prepare_TypeWriter()
     {
-        tmpro.color = tmpro.color;
-        tmpro.maxVisibleCharacters = 0;
-        tmpro.text = preText;
 
-        if (preText != "")
-        {
-            tmpro.ForceMeshUpdate();
-            tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
-        }
-
-        tmpro.text += targetText;
-        tmpro.ForceMeshUpdate();
     }
-
     private void Prepare_Fade()
     {
-        tmpro.text = preText;
 
-        if (preText != "")
-        {
-            tmpro.ForceMeshUpdate();
-            preTextLength = tmpro.textInfo.characterCount;
-        }
-        else
-            preTextLength = 0;
-
-        tmpro.text += targetText;
-        tmpro.maxVisibleCharacters = int.MaxValue;
-        tmpro.ForceMeshUpdate();
-
-        TMP_TextInfo textInfo = tmpro.textInfo;
-
-        Color colorvisable = new Color(textColor.r, textColor.g, textColor.b, 1);
-        Color colorHidden = new Color(textColor.r, textColor.g, textColor.b, 0);
-
-        Color32[] vertexColors = textInfo.meshInfo[textInfo.characterInfo[0].materialReferenceIndex].colors32; //extracting the vertex colors for the mesh that corresponds to the material used by the first character in the text.
-
-        for (int i = 0; i < textInfo.characterCount; i++)
-        {
-            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-
-            if (!charInfo.isVisible)
-            {
-                continue;
-            }
-
-            if (i < preTextLength)
-            {
-                for (int v = 0; v < 4; v++)
-                    vertexColors[charInfo.vertexIndex + v] = colorvisable;
-            }
-            else
-            {
-                for (int v = 0; v < 4; v++)
-                    vertexColors[charInfo.vertexIndex + v] = colorHidden;
-            }
-        }
-
-        tmpro.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
     }
 
-    private IEnumerator Build_Typewriter()
+    private IEnumerator Build_TypeWriter()
     {
-        while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount)
-        {
-            tmpro.maxVisibleCharacters += hurryUp ? characterPerCycle * 5 : characterPerCycle;
-            yield return new WaitForSeconds(0.015f / speed);
-        }
-
+        yield return null;
     }
 
     private IEnumerator Build_Fade()
     {
-        int minRange = preTextLength;
-        int maxRange = minRange + 1; //start just working with one character
-
-        byte alphaThreshold = 15; //0-255
-
-        TMP_TextInfo textInfo = tmpro.textInfo;
-
-        Color32[] vertexColors = textInfo.meshInfo[textInfo.characterInfo[0].materialReferenceIndex].colors32; //extracting the vertex colors for the mesh that corresponds to the material used by the first character in the text.
-        float[] alphas = new float[textInfo.characterCount]; //store the alpha of each character
-
-        while (true)
-        {
-            float fadeSpeed = ((hurryUp ? characterPerCycle * 5 : characterPerCycle) * speed) * 4f; //if hurry up is true, then the fade speed is multiplied by 5
-
-            for (int i = minRange; i < maxRange; i++)
-            {
-                TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-
-                if (!charInfo.isVisible)
-                    continue;
-
-                int vertexIndex = textInfo.characterInfo[i].vertexIndex;
-                alphas[i] = Mathf.MoveTowards(alphas[i], 255, fadeSpeed);
-
-                for (int v = 0; v < 4; v++)
-                    vertexColors[charInfo.vertexIndex + v].a = (byte)alphas[i];
-
-                if (alphas[i] >= 255)
-                    minRange++;
-            }
-
-            tmpro.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
-
-            bool lastCharacterIsInvisible = !textInfo.characterInfo[maxRange - 1].isVisible;
-            if (alphas[maxRange - 1] > alphaThreshold || lastCharacterIsInvisible)
-            {
-                if (maxRange < textInfo.characterCount)
-                    maxRange++;
-                else if (alphas[maxRange - 1] >= 255 || lastCharacterIsInvisible)
-                    break;
-            }
-
-            yield return new WaitForEndOfFrame();
-
-        }
+        yield return null;
     }
 }
