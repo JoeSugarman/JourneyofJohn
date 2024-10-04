@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TESTING
 {
@@ -17,6 +18,7 @@ namespace TESTING
             "hehe",
             "haha"
         };
+        private int currentIndex = 0;
 
         // Start is called before the first frame update
         void Start()
@@ -30,22 +32,38 @@ namespace TESTING
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if(architect.isBuilding)
+                if (architect.isBuilding)
                 {
-                    if(!architect.hurryUp)
+                    if (!architect.hurryUp)
                         architect.hurryUp = true;
                     else
                         architect.ForceComplete();
                 }
-                else 
-                    architect.Build(lines[Random.Range(0, lines.Length)]);
+                else
+                {
+                    if (currentIndex < lines.Length)
+                    {
+                        architect.Build(lines[currentIndex]);
+                        currentIndex++;
+                    }
+                    else
+                    {
+                        GoToNextScene();
+                    }
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                architect.Append(lines[Random.Range(0, lines.Length)]);
-            }
+            //else if (Input.GetKeyDown(KeyCode.A))
+            //{
+            //    architect.Append(lines[Random.Range(0, lines.Length)]);
+            //}
+        }
+
+        void GoToNextScene()
+        {
+            // Replace "NextSceneName" with the actual name of your next scene
+            SceneManager.LoadScene(3);
         }
     }
 }

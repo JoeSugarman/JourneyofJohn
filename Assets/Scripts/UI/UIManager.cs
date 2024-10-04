@@ -90,4 +90,12 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    #region testing
+    public void GoGameScene()
+    {
+        SceneManager.LoadScene(3); //reload the current scene
+    }
+
+    #endregion
 }
