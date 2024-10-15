@@ -18,10 +18,19 @@ namespace TESTING
         public UnityEngine.UI.Button button1;
         public UnityEngine.UI.Button button2;
         public UnityEngine.UI.Button button3;
+        public UnityEngine.UI.Button ramen;
+        public UnityEngine.UI.Button sushi;
+        public UnityEngine.UI.Button newResterant;
+        public UnityEngine.UI.Button continue2;
+        public UnityEngine.UI.Button continue3;
+        public UnityEngine.UI.Button BackToHome;
+        public UnityEngine.UI.Button BackToWork;
 
         //images swithching
         public UnityEngine.UI.Image officeWorkingImage;
         public UnityEngine.UI.Image quitJobLetterImage;
+        public UnityEngine.UI.Image leavingLetter;
+        public UnityEngine.UI.Image atm;
 
         private string[] currentDialogue;
 
@@ -61,9 +70,55 @@ namespace TESTING
         {
             "What a good day to hand in my resignation letter!",
             "haha",
-            "This probably the best moment in my life ;)"
+            "This probably the best moment in my life ;)",
+            "What should I eat later?",
+            "Ramen? Shushi? What if go to the new restaurant near the train station?"
         };
 
+        //great choice self talk
+        string[] greatChoice = new string[]
+        {
+            "Great Choice!",
+            "You really know what I want. Haha"
+        };
+
+        //office selftalk
+        string[] officeselftalk = new string[]
+        {
+            "It should be ok to just leaving this letter on my desk.",
+            "See you my desk, see you my boss :>"
+        };
+
+        //Oh no, I have no money selftalk
+        string[] noMoney = new string[]
+        {
+            "OH NO!!!!!!!!!!!!!",
+            "Why there is no money in my bank account?",
+            "How can I travel without money?!?!",
+            "Shxt! No jobs, no money, who am I now? I'm nothing but a middle age bachelor... "
+        };
+
+        //backtohome selftalk
+        string[] backToHome = new string[]
+        {
+            "Yea, I should go back to my home and think about my life...",
+            "Wait no. I should go back to my home and take a nap",
+            "What should I do next?",
+            "I have infinite time without a job, would this question be a question to me?",
+            "It should be 20 years that I didn't sleep more than 6 hours everyday.",
+            "So, I'm not going to take a nap, I'm going to take a 'coma'. "
+        };
+
+        //backtowork selftalk
+        string[] backtowork = new string[]
+        {
+            "Back to work? My boss would probably kill me.",
+            "Can I go back to my previous position if I'm back to office now?",
+            "Probably not, I should go back to my home and take a nap.",
+            "What should I do next?",
+            "This is not the most urgent question for me, even though my bank account has zero money left.",
+            "Life is more important"
+        };
 
         private int currentIndex = 0;
 
@@ -83,9 +138,21 @@ namespace TESTING
             button1.onClick.AddListener(YesButtonClick);
             button2.onClick.AddListener(NoButtonClick);
             button3.onClick.AddListener(switchImageClick);
+            ramen.onClick.AddListener(ramenSuShiRestClick);
+            sushi.onClick.AddListener(ramenSuShiRestClick);
+            newResterant.onClick.AddListener(ramenSuShiRestClick);
+            continue2.onClick.AddListener(SwitchOfficeImage);
+            continue3.onClick.AddListener(SwitchATMImage);
+            BackToHome.onClick.AddListener(BackToHomeClick);
+            BackToWork.onClick.AddListener(BackToWorkClick);
 
+            //deactivate all images
             if (quitJobLetterImage != null)
                 quitJobLetterImage.gameObject.SetActive(false);
+            if (leavingLetter != null)
+                leavingLetter.gameObject.SetActive(false);
+            if (atm != null)
+                atm.gameObject.SetActive(false);
         }
 
         // Update is called once per frame
@@ -122,6 +189,25 @@ namespace TESTING
                         {
                             button1.gameObject.SetActive(true);
                             button2.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == continueSelfTalk)
+                        {
+                            ramen.gameObject.SetActive(true);
+                            sushi.gameObject.SetActive(true);
+                            newResterant.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == greatChoice)
+                        {
+                            continue2.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == officeselftalk)
+                        {
+                            continue3.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == noMoney)
+                        {
+                            BackToHome.gameObject.SetActive(true);
+                            BackToWork.gameObject.SetActive(true);
                         }
                     }
                 }
@@ -216,6 +302,130 @@ namespace TESTING
                 currentIndex++;
             }
 
+            if(currentIndex >= currentDialogue.Length)
+            {
+                ramen.gameObject.SetActive(true);
+                sushi.gameObject.SetActive(true);
+                newResterant.gameObject.SetActive(true);
+            }
+
+        }
+
+        void ramenSuShiRestClick() 
+        {
+            // Load the new string array for dialogues
+            currentDialogue = greatChoice;
+
+            // Reset the index and continue with the new dialogues
+            currentIndex = 0;
+
+            ramen.gameObject.SetActive(false);
+            sushi.gameObject.SetActive(false);
+            newResterant.gameObject.SetActive(false);
+
+            // Start the new dialogue sequence
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void UpdateButtonForGoToOffice()
+        {
+            if (currentIndex >= currentDialogue.Length)
+            {
+                // All dialogue finished, show continue2
+                continue2.gameObject.SetActive(true);
+            }
+        }
+
+        void SwitchOfficeImage()
+        {
+            if (officeWorkingImage != null)
+                officeWorkingImage.gameObject.SetActive(false);
+
+            if (quitJobLetterImage != null)
+                quitJobLetterImage.gameObject.SetActive(false);
+
+            if (leavingLetter != null)
+                leavingLetter.gameObject.SetActive(true);
+
+            continue2.gameObject.SetActive(false);
+
+            
+            
+            currentDialogue = officeselftalk;
+
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                // Start the new dialogue sequence
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void UpdateButtonForGoToATM()
+        {
+            if (currentIndex >= currentDialogue.Length)
+            {
+                // All dialogue finished, show button3
+                continue3.gameObject.SetActive(true);
+            }
+        }
+
+        void SwitchATMImage()
+        {
+            if (leavingLetter != null)
+                leavingLetter.gameObject.SetActive(false);
+            if (atm != null)
+                atm.gameObject.SetActive(true);
+
+            continue3.gameObject.SetActive(false);
+
+            currentDialogue = noMoney;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                // Start the new dialogue sequence
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void BackToHomeClick()
+        {
+            BackToHome.gameObject.SetActive(false);
+            BackToWork.gameObject.SetActive(false);
+
+            currentDialogue = backToHome;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                // Start the new dialogue sequence
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void BackToWorkClick()
+        {
+            BackToHome.gameObject.SetActive(false);
+            BackToWork.gameObject.SetActive(false);
+
+            currentDialogue = backtowork;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                // Start the new dialogue sequence
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
         }
 
         void GoToNextScene()
