@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UITransition : MonoBehaviour
 {
@@ -61,5 +62,12 @@ public class UITransition : MonoBehaviour
 
         // Mark the movement as complete
         isMoving = false;
+    }
+
+
+
+    public void GoToIntroductionScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }

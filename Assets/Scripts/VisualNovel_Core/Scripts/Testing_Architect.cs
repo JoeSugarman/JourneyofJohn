@@ -25,6 +25,7 @@ namespace TESTING
         public UnityEngine.UI.Button continue3;
         public UnityEngine.UI.Button BackToHome;
         public UnityEngine.UI.Button BackToWork;
+        public UnityEngine.UI.Button continue4;
 
         //images swithching
         public UnityEngine.UI.Image officeWorkingImage;
@@ -33,6 +34,7 @@ namespace TESTING
         public UnityEngine.UI.Image atm;
 
         private string[] currentDialogue;
+        bool dialogueFinished = false;
 
 
         //first loading self talk
@@ -145,6 +147,7 @@ namespace TESTING
             continue3.onClick.AddListener(SwitchATMImage);
             BackToHome.onClick.AddListener(BackToHomeClick);
             BackToWork.onClick.AddListener(BackToWorkClick);
+            continue4.onClick.AddListener(GoToNextScene);
 
             //deactivate all images
             if (quitJobLetterImage != null)
@@ -208,6 +211,10 @@ namespace TESTING
                         {
                             BackToHome.gameObject.SetActive(true);
                             BackToWork.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == backToHome || currentDialogue == backtowork)
+                        {
+                            continue4.gameObject.SetActive(true); // Transition to the next scene
                         }
                     }
                 }
@@ -409,7 +416,12 @@ namespace TESTING
                 // Start the new dialogue sequence
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
+            }else
+            {
+                dialogueFinished = true;
             }
+            
+
         }
 
         void BackToWorkClick()
@@ -426,12 +438,19 @@ namespace TESTING
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
             }
+            else
+            {
+                dialogueFinished = true;
+            }
+
+
+
         }
 
         void GoToNextScene()
         {
             // Replace "NextSceneName" with the actual name of your next scene
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 }
