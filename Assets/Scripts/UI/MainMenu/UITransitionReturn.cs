@@ -21,7 +21,7 @@ public class UITransitionReturn : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         // Set the object to its initial position (point A)
-        rectTransform.anchoredPosition = pointA;
+        //rectTransform.anchoredPosition = pointA;
     }
 
     // This method will be called when the button is pressed
