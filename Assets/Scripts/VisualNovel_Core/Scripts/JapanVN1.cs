@@ -16,10 +16,16 @@ namespace TESTING
 
         //buttons swithcing
         public UnityEngine.UI.Button VN1Continue1;
+        public UnityEngine.UI.Button VN1Yes1;
+        public UnityEngine.UI.Button VN1No1;
 
         //image switching
         public UnityEngine.UI.Image shrineFrontDoor;
         public UnityEngine.UI.Image shrineInside;
+
+        //dialogue
+        public GameObject johnNameTag;
+        public GameObject nonJohnNameTag;
 
         private string[] currentDialogue;
         bool dialogueFinished = false;
@@ -46,6 +52,34 @@ namespace TESTING
             "Plzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
         };
 
+        //priest first dialogue
+        string[] interviewWithJohn = new string[]
+        {
+            "Hey young man, what are you doing?",
+            "Today isn't a holiday, don't you need to go to work?",
+            "Hey open your eyes, I'm here. The voice is from me, not the god!"
+        };
+
+        //should john open eyes
+        string[] openEyes = new string[]
+        {
+            "Should I open my eyes?",
+            "Maybe this is a test from god"
+        };
+
+        //should john open eyes: yes
+        string[] openEyesYes = new string[]
+        {
+            "A? Is someone talking to me?"
+        };
+
+        //should john open eyes: no
+        string[] openEyesNo = new string[]
+        {
+            "Hey!!!",
+            "I'm talking to you!!!",
+            "Wake up!!!"
+        };
 
         // Start is called before the first frame update
         void Start()
@@ -61,11 +95,18 @@ namespace TESTING
 
             //add a listerner for the button click
             VN1Continue1.onClick.AddListener(enterIntoTheShrine);
+            VN1Yes1.onClick.AddListener(OpenEyeYes);
+            VN1No1.onClick.AddListener(OpenEyeNo);
 
-            //deactivate all images
+            //deactivate all objects
             if (shrineInside != null)
                 shrineInside.gameObject.SetActive(false);
-
+            if (nonJohnNameTag != null)
+                nonJohnNameTag.gameObject.SetActive(false);
+            if (VN1Yes1 != null)
+                VN1Yes1.gameObject.SetActive(false);
+            if (VN1No1 != null)
+                VN1No1.gameObject.SetActive(false);
         }
 
         private int currentIndex = 0;
@@ -91,11 +132,27 @@ namespace TESTING
                     }
                     else
                     {
-                        if(currentDialogue == frontDoorDialogue)
+                        dialogueFinished = true;
+
+                        if (currentDialogue == frontDoorDialogue)
                         {
                             //activate the button
                             VN1Continue1.gameObject.SetActive(true);
                         }
+                        else if (currentDialogue == prayInFrontOFShrine && dialogueFinished)
+                        {
+                            priestFirstTalk();
+                        }
+                        else if (currentDialogue == interviewWithJohn && dialogueFinished)
+                        {
+                            shouldIOpenEye();
+                        }
+                        else if (currentDialogue == openEyes && dialogueFinished)
+                        {
+                            VN1Yes1.gameObject.SetActive(true);
+                            VN1No1.gameObject.SetActive(true);
+                        }
+
                     }
                 }
             }
@@ -120,7 +177,101 @@ namespace TESTING
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
             }
+
         }
+
+        void priestFirstTalk()
+        {
+            dialogueFinished = false;
+
+            //turn off john's dialogue
+            johnNameTag.gameObject.SetActive(false);
+
+            //turn on non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            //load new dialogue
+            currentDialogue = interviewWithJohn;
+            currentIndex = 0;
+
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void shouldIOpenEye()
+        {
+            dialogueFinished = false;
+
+            //turn off non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(false);
+
+            //turn on john's dialogue
+            johnNameTag.gameObject.SetActive(true);
+
+            //load new dialogue
+            currentDialogue = openEyes;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+
+            ChooseOpenEye();
+        }
+
+        void ChooseOpenEye() 
+        {
+            if(currentIndex >= currentDialogue.Length)
+            {
+                VN1Yes1.gameObject.SetActive(true);
+                VN1No1.gameObject.SetActive(true);
+            }
+        } 
+
+        void OpenEyeYes()
+        {
+            currentDialogue = openEyesYes;
+
+            currentIndex = 0;
+
+            VN1Yes1.gameObject.SetActive(false);
+            VN1No1.gameObject.SetActive(false);
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void OpenEyeNo()
+        {
+            //turn off john's dialogue
+            johnNameTag.gameObject.SetActive(false);
+
+            //turn on non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            currentDialogue = openEyesNo;
+
+            currentIndex = 0;
+
+            VN1Yes1.gameObject.SetActive(false);
+            VN1No1.gameObject.SetActive(false);
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
 
     }
 }
