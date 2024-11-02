@@ -81,6 +81,12 @@ namespace TESTING
             "Wake up!!!"
         };
 
+        //hummm should I
+        string[] shouldI = new string[]
+        {
+            "Hmmmmmm..."
+        };
+
         // Start is called before the first frame update
         void Start()
         {
@@ -151,6 +157,10 @@ namespace TESTING
                         {
                             VN1Yes1.gameObject.SetActive(true);
                             VN1No1.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == openEyesNo && dialogueFinished)
+                        {
+                            shouldIOpen();
                         }
 
                     }
@@ -236,6 +246,8 @@ namespace TESTING
 
         void OpenEyeYes()
         {
+            dialogueFinished = false;
+
             currentDialogue = openEyesYes;
 
             currentIndex = 0;
@@ -252,6 +264,8 @@ namespace TESTING
 
         void OpenEyeNo()
         {
+            dialogueFinished = false;
+
             //turn off john's dialogue
             johnNameTag.gameObject.SetActive(false);
 
@@ -269,7 +283,30 @@ namespace TESTING
             {
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
+            } 
+        }
+
+        void shouldIOpen()
+        {
+            dialogueFinished = false;
+
+            //turn off non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(false);
+
+            //turn on john's dialogue
+            johnNameTag.gameObject.SetActive(true);
+
+            //load new dialogue
+            currentDialogue = shouldI;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
             }
+
+            ChooseOpenEye();
         }
 
 
