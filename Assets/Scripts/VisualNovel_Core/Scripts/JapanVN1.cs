@@ -18,10 +18,12 @@ namespace TESTING
         public UnityEngine.UI.Button VN1Continue1;
         public UnityEngine.UI.Button VN1Yes1;
         public UnityEngine.UI.Button VN1No1;
+        public UnityEngine.UI.Button VN1Continue2;
 
         //image switching
         public UnityEngine.UI.Image shrineFrontDoor;
         public UnityEngine.UI.Image shrineInside;
+        public UnityEngine.UI.Image standingConversation;
 
         //dialogue
         public GameObject johnNameTag;
@@ -70,7 +72,8 @@ namespace TESTING
         //should john open eyes: yes
         string[] openEyesYes = new string[]
         {
-            "A? Is someone talking to me?"
+            "A? Is someone talking to me?",
+            "The sound feels close to my ear."
         };
 
         //should john open eyes: no
@@ -85,6 +88,52 @@ namespace TESTING
         string[] shouldI = new string[]
         {
             "Hmmmmmm..."
+        };
+
+        //--------------new stage----------------
+        //asking from the old
+        string[] askingForDetail = new string[]
+        {
+            "Why would you quit your job?"
+        };
+
+        //answer from john
+        string[] answerFromJohn = new string[]
+        {
+            "I don't want to be a robot anymore.",
+            "In the office day, I kept doing the same thing but that is not what I want to do for my whole life.",
+            "It is stable, but not fun.",
+            "Soooooo, I quit my job and I hope I can visit as most as places in my remaining life."
+        };
+
+        //reply from the old
+        string[] replyFromOld = new string[]
+        {
+            "I see...",
+            "So you think you can find an answer here?",
+            "That sounds romantic",
+            "I mean, UNREALISTIC",
+            "But I can't stop you from doing that.",
+            "Maybe I can help you",
+            "But you have to help me to do something first"
+        };
+
+        //question from john
+        string[] whatIsIt = new string[]
+        {
+            "What is it?",
+            "I would try my best if I think I am able to do or help with.",
+            "But I can't promise you that I can do it."
+        };
+
+        //reply from the old
+        string[] giveChoice = new string[]
+        {
+            "You cannot know it before you promise me.",
+            "This is the rule.",
+            "You have two choices now, either promise me you can help, and then I would help you to go to another place.",
+            "Or you could say no, but of course you can't get any help from me if you choose that.",
+            "So, what is your choice?"
         };
 
         // Start is called before the first frame update
@@ -103,6 +152,7 @@ namespace TESTING
             VN1Continue1.onClick.AddListener(enterIntoTheShrine);
             VN1Yes1.onClick.AddListener(OpenEyeYes);
             VN1No1.onClick.AddListener(OpenEyeNo);
+            VN1Continue2.onClick.AddListener(EnterConversationBetweenJohnAndOldman);
 
             //deactivate all objects
             if (shrineInside != null)
@@ -113,6 +163,10 @@ namespace TESTING
                 VN1Yes1.gameObject.SetActive(false);
             if (VN1No1 != null)
                 VN1No1.gameObject.SetActive(false);
+            if (VN1Continue2 != null)
+                VN1Continue2.gameObject.SetActive(false);
+            if (standingConversation != null)
+                standingConversation.gameObject.SetActive(false);
         }
 
         private int currentIndex = 0;
@@ -161,6 +215,14 @@ namespace TESTING
                         else if (currentDialogue == openEyesNo && dialogueFinished)
                         {
                             shouldIOpen();
+                        }
+                        else if (currentDialogue == openEyesYes)
+                        {
+                            VN1Continue2.gameObject.SetActive(true);
+                        }
+                        else if (currentDialogue == askingForDetail && dialogueFinished)
+                        {
+                            johnReply();
                         }
 
                     }
@@ -309,6 +371,38 @@ namespace TESTING
             ChooseOpenEye();
         }
 
+        void EnterConversationBetweenJohnAndOldman()
+        {
+            //change background
+            shrineInside.gameObject.SetActive(false);
+            standingConversation.gameObject.SetActive(true);
+
+            //change the name tag
+            johnNameTag.gameObject.SetActive(false);
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            //turn of continue button
+            VN1Continue2.gameObject.SetActive(false);
+
+            //load new dialogue
+            currentDialogue = askingForDetail;
+            currentIndex = 0;
+
+            //deactivate the button
+            VN1Continue1.gameObject.SetActive(false);
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                // Start the new dialogue sequence
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void johnReply()
+        {
+
+        }
 
     }
 }
