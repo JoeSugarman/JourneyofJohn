@@ -19,6 +19,8 @@ namespace TESTING
         public UnityEngine.UI.Button VN1Yes1;
         public UnityEngine.UI.Button VN1No1;
         public UnityEngine.UI.Button VN1Continue2;
+        public UnityEngine.UI.Button Accept;
+        public UnityEngine.UI.Button Decline;
 
         //image switching
         public UnityEngine.UI.Image shrineFrontDoor;
@@ -167,6 +169,10 @@ namespace TESTING
                 VN1Continue2.gameObject.SetActive(false);
             if (standingConversation != null)
                 standingConversation.gameObject.SetActive(false);
+            if (Accept != null)
+                Accept.gameObject.SetActive(false);
+            if (Decline != null)
+                Decline.gameObject.SetActive(false);
         }
 
         private int currentIndex = 0;
@@ -223,6 +229,18 @@ namespace TESTING
                         else if (currentDialogue == askingForDetail && dialogueFinished)
                         {
                             johnReply();
+                        }
+                        else if (currentDialogue == answerFromJohn && dialogueFinished)
+                        {
+                            oldReply();
+                        }
+                        else if (currentDialogue == replyFromOld && dialogueFinished)
+                        {
+                            questionFromJohn();
+                        }
+                        else if (currentDialogue == whatIsIt && dialogueFinished)
+                        {
+                            choiceFromOld();
                         }
 
                     }
@@ -401,8 +419,88 @@ namespace TESTING
 
         void johnReply()
         {
+            dialogueFinished = false;
 
+            //turn on john's dialogue
+            johnNameTag.gameObject.SetActive(true);
+
+            //turn off non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(false);
+
+            //load new dialogue
+            currentDialogue = answerFromJohn;
+            currentIndex = 0;
+
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
         }
 
+        void oldReply()
+        {
+            dialogueFinished = false;
+
+            //turn off john's dialogue
+            johnNameTag.gameObject.SetActive(false);
+
+            //turn on non-john's dialogue
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            //load new dialogue
+            currentDialogue = replyFromOld;
+            currentIndex = 0;
+
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void questionFromJohn()
+        {
+            dialogueFinished = false;
+
+            //turn on john's dialouge
+            johnNameTag.gameObject.SetActive(true);
+
+            //turn off non-john dialogue
+            nonJohnNameTag.gameObject.SetActive(false);
+
+            //load new dialouge
+            currentDialogue = whatIsIt;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void choiceFromOld()
+        {
+            dialogueFinished = false;
+
+            //turn off john
+            johnNameTag.gameObject.SetActive(false);
+
+            //turn on old man
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            //load new dialogue
+            currentDialogue = giveChoice;
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
     }
 }
