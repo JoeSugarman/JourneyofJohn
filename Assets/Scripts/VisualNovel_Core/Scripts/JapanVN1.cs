@@ -138,6 +138,37 @@ namespace TESTING
             "So, what is your choice?"
         };
 
+        //--------------new stage----------------
+        //accept the old's request
+        string[] accept = new string[]
+        {
+            "Humm, sure!",
+            "I promise you that I would help you.",
+            "But you have to promise me that you would help me to go to another place."
+        };
+
+        //decline the old's request
+        string[] decline = new string[]
+        {
+            "Hummmmmmmmmmmmm",
+            "I am a physical trash, I can't even run 400m",
+            "I can't promise you that I can help you.",
+            "I'm sorry."
+        };
+
+        string[] oldmanWish = new string[]
+        {
+            "To be honest, it is not a easy task so that I'm still finding someone to help me",
+            "But I believe you can.",
+            "I see your talent on it.",
+            "Trust me. After that, you can fulfill the dream that you want."
+        };
+
+        string[] what = new string[]
+        {
+            "What?"
+        };
+
         // Start is called before the first frame update
         void Start()
         {
@@ -155,6 +186,8 @@ namespace TESTING
             VN1Yes1.onClick.AddListener(OpenEyeYes);
             VN1No1.onClick.AddListener(OpenEyeNo);
             VN1Continue2.onClick.AddListener(EnterConversationBetweenJohnAndOldman);
+            Accept.onClick.AddListener(acceptRequest);
+            Decline.onClick.AddListener(declineRequest);
 
             //deactivate all objects
             if (shrineInside != null)
@@ -242,6 +275,11 @@ namespace TESTING
                         {
                             choiceFromOld();
                         }
+                        else if(currentDialogue == giveChoice)
+                        {
+                            Accept.gameObject.SetActive(true);
+                            Decline.gameObject.SetActive(true);
+                        }
 
                     }
                 }
@@ -315,14 +353,14 @@ namespace TESTING
             ChooseOpenEye();
         }
 
-        void ChooseOpenEye() 
+        void ChooseOpenEye()
         {
-            if(currentIndex >= currentDialogue.Length)
+            if (currentIndex >= currentDialogue.Length)
             {
                 VN1Yes1.gameObject.SetActive(true);
                 VN1No1.gameObject.SetActive(true);
             }
-        } 
+        }
 
         void OpenEyeYes()
         {
@@ -363,7 +401,7 @@ namespace TESTING
             {
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
-            } 
+            }
         }
 
         void shouldIOpen()
@@ -495,6 +533,54 @@ namespace TESTING
             //load new dialogue
             currentDialogue = giveChoice;
             currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+
+            AcceptOrDecline();
+
+        }
+
+        void AcceptOrDecline()
+        {
+            if (currentIndex >= currentDialogue.Length)
+            {
+                Accept.gameObject.SetActive(true);
+                Decline.gameObject.SetActive(true);
+            }
+        }
+
+        void acceptRequest()
+        {
+            dialogueFinished = false;
+
+            currentDialogue = accept;
+
+            currentIndex = 0;
+
+            Accept.gameObject.SetActive(false);
+            Decline.gameObject.SetActive(false);
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void declineRequest()
+        {
+            dialogueFinished = false;
+
+            currentDialogue = decline;
+
+            currentIndex = 0;
+
+            Decline.gameObject.SetActive(false);
+            Accept.gameObject.SetActive(false);
 
             if (currentIndex < currentDialogue.Length)
             {
