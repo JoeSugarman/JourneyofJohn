@@ -275,11 +275,20 @@ namespace TESTING
                         {
                             choiceFromOld();
                         }
-                        else if(currentDialogue == giveChoice)
+                        else if (currentDialogue == giveChoice)
                         {
                             Accept.gameObject.SetActive(true);
                             Decline.gameObject.SetActive(true);
                         }
+                        else if (currentDialogue == decline && dialogueFinished)
+                        {
+                            oldmanDeclineTheDecline();
+                        }
+                        else if (currentDialogue == oldmanWish && dialogueFinished)
+                        {
+                            whatTF();
+                        }
+
 
                     }
                 }
@@ -561,6 +570,9 @@ namespace TESTING
 
             currentIndex = 0;
 
+            johnNameTag.gameObject.SetActive(true);
+            nonJohnNameTag.gameObject.SetActive(false);
+
             Accept.gameObject.SetActive(false);
             Decline.gameObject.SetActive(false);
 
@@ -577,10 +589,49 @@ namespace TESTING
 
             currentDialogue = decline;
 
+            johnNameTag.gameObject.SetActive(true);
+            nonJohnNameTag.gameObject.SetActive(false);
+
             currentIndex = 0;
 
             Decline.gameObject.SetActive(false);
             Accept.gameObject.SetActive(false);
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void oldmanDeclineTheDecline()
+        {
+            dialogueFinished = false;
+
+            currentDialogue = oldmanWish;
+
+            johnNameTag.gameObject.SetActive(false);
+            nonJohnNameTag.gameObject.SetActive(true);
+
+            currentIndex = 0;
+
+            if (currentIndex < currentDialogue.Length)
+            {
+                architect.Build(currentDialogue[currentIndex]);
+                currentIndex++;
+            }
+        }
+
+        void whatTF()
+        {
+            dialogueFinished = false;
+
+            currentDialogue = what;
+
+            johnNameTag.gameObject.SetActive(true);
+            nonJohnNameTag.gameObject.SetActive(false);
+
+            currentIndex = 0;
 
             if (currentIndex < currentDialogue.Length)
             {
