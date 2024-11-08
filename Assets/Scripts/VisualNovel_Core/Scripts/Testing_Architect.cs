@@ -449,7 +449,7 @@ namespace TESTING
 
         void GoToNextScene()
         {
-            // Replace "NextSceneName" with the actual name of your next scene
+            // load JPVN1
             SceneManager.LoadScene(2);
         }
     }

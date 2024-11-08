@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Levels/Introduction.unity
     guid: 5e5f08a324465984db7e8de88749a47f
   - enabled: 1
+    path: Assets/Levels/JapanVN1.unity
+    guid: d6c95cc6109979c498a2589036bf617d
+  - enabled: 1
     path: Assets/Levels/JapanGameScene1.unity
     guid: b14dcc2da49210b43a4d6121c84d5762
   - enabled: 0
