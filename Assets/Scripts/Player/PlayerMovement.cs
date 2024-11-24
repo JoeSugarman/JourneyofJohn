@@ -34,12 +34,23 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
 
+    //trail renderer
+    private TrailRenderer trailRenderer;
+    private Rigidbody2D rb;
+
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        trailRenderer = GetComponent<TrailRenderer>();
+        trailRenderer.enabled = false;
     }
 
     private void Update()
@@ -107,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //check if player on wall
-        if(onWall())
+        if (onWall())
         {
             body.gravityScale = 0;
             body.velocity = Vector2.zero;
@@ -115,15 +126,19 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             body.gravityScale = 7;
-            body.velocity = new Vector2(horizontalInput*speed, body.velocity.y);
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             if (isGrounded())
             {
                 coyoteCounter = coyoteTime; //reset the coyote counter
                 jumpCounter = extraJumps; //reset the jump counter
+                trailRenderer.enabled = false;
             }
             else
+            {
                 coyoteCounter -= Time.deltaTime; //start counting down the coyote counter
+                trailRenderer.enabled = true;
+            }
         }
 
     }
