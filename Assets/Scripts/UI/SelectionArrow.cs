@@ -18,7 +18,10 @@ public class SelectionArrow : MonoBehaviour
     {
         //change position of the selection arrow
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
             ChangePosition(-1);
+            Debug.Log("Interact key pressed");
+        }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             ChangePosition(1);
 
