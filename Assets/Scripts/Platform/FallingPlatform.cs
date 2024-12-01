@@ -1,46 +1,55 @@
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    [SerializeField] private float fallDelay;
-    [SerializeField] private float fallSpeed;
-    [SerializeField] private float destroyThreshold = 10f;
+    [SerializeField] private float fallDelay = 2.0f;
+    private float destroyDelay = 2.0f;
 
-    private bool isFalling = false;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject vanishEffect;
+    private bool destroyStarted;
+    private Vector3 initPosition;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isFalling)
-        {
-            transform.Translate (Vector3.down* fallSpeed * Time.deltaTime);
-
-            if (transform.position.y < destroyThreshold)
-            {
-                Destroy(gameObject);
-            }
-        }
+        initPosition = transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(destroyStarted) return;
+        if (!collision.otherCollider.usedByEffector) return;
+        if(collision.gameObject.CompareTag("Player"))
         {
-            Invoke("StartFalling", fallDelay);
+            StartCoroutine(Fall());
         }
     }
 
-    void StartFalling()
+    private IEnumerator Fall()
     {
-        isFalling = true;
+        destroyStarted = true;
+        yield return new WaitForSeconds(fallDelay);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        yield return new WaitForSeconds(destroyDelay);
+        Instantiate(vanishEffect, transform.position, Quaternion.identity);
+        Reset();
     }
 
+    private async void Reset()
+    {
+        gameObject.SetActive(false);
+        await Task.Delay(5000);
+        try { 
+            destroyStarted = false;
+            rb.bodyType = RigidbodyType2D.Static;
+            gameObject.transform.position = initPosition;
+            gameObject.SetActive(true);
+        }
+        catch { }
+    }
 
 }
+
+
