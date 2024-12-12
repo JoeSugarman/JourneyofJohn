@@ -21,6 +21,7 @@ namespace TESTING
         public UnityEngine.UI.Button VN1Continue2;
         public UnityEngine.UI.Button Accept;
         public UnityEngine.UI.Button Decline;
+        public UnityEngine.UI.Button VN1Continue3;
 
         //image switching
         public UnityEngine.UI.Image shrineFrontDoor;
@@ -188,6 +189,7 @@ namespace TESTING
             VN1Continue2.onClick.AddListener(EnterConversationBetweenJohnAndOldman);
             Accept.onClick.AddListener(acceptRequest);
             Decline.onClick.AddListener(declineRequest);
+            VN1Continue3.onClick.AddListener(GoToNextScene);
 
             //deactivate all objects
             if (shrineInside != null)
@@ -287,6 +289,10 @@ namespace TESTING
                         else if (currentDialogue == oldmanWish && dialogueFinished)
                         {
                             whatTF();
+                        }
+                        else if ((currentDialogue == what && dialogueFinished) ||(currentDialogue == accept && dialogueFinished))
+                        {
+                            VN1Continue3.gameObject.SetActive(true);
                         }
 
 
@@ -638,6 +644,11 @@ namespace TESTING
                 architect.Build(currentDialogue[currentIndex]);
                 currentIndex++;
             }
+        }
+
+        void GoToNextScene()
+        {
+            SceneManager.LoadScene(3);
         }
     }
 }

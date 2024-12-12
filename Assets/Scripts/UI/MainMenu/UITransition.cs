@@ -70,4 +70,19 @@ public class UITransition : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void GoToVNOne()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void GoToGMOne()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void GoToGMTwo()
+    {
+        SceneManager.LoadScene(4);
+    }
 }

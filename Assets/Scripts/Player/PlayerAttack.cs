@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-       if(Input.GetMouseButtonDown(0) && coolDownTimer > attackCooldown && playerMovement.canAttack())
+       if(Input.GetKeyDown(KeyCode.Comma) && coolDownTimer > attackCooldown && playerMovement.canAttack())
        {
            Attack();
        }
