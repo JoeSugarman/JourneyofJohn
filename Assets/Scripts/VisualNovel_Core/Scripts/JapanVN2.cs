@@ -25,6 +25,11 @@ namespace TESTING
         public UnityEngine.UI.Image chamber;
         public UnityEngine.UI.Image HowToPlay;
 
+        //character switching
+        public UnityEngine.UI.Image VN2john;
+        public UnityEngine.UI.Image VN2disciple;
+        public UnityEngine.UI.Image VN2priest;
+
         //dialogue
         public GameObject johnNameTagInVN2;
         public GameObject discipleTagInVN2;
@@ -210,6 +215,10 @@ namespace TESTING
             pureblack.gameObject.SetActive(false);
             chamber.gameObject.SetActive(true);
 
+            //turn on character
+            VN2john.gameObject.SetActive(true);
+            VN2priest.gameObject.SetActive(true);
+
             //change name tag
             theOldThickDoor.SetActive(false);
             johnNameTagInVN2.SetActive(false);
@@ -314,6 +323,9 @@ namespace TESTING
             johnNameTagInVN2.SetActive(false);
             discipleTagInVN2.SetActive(true);
             priestNameTagInVN2.SetActive(false);
+
+            VN2disciple.gameObject.SetActive(true);
+
             //load new dialogue
             currentDialogue = selfIntro;
             currentIndex = 0;
@@ -343,15 +355,20 @@ namespace TESTING
             dialogueFinished = false;
             //change name tag
             johnNameTagInVN2.SetActive(false);
-            discipleTagInVN2.SetActive(true);
-            priestNameTagInVN2.SetActive(false);
+            discipleTagInVN2.SetActive(false);
+            priestNameTagInVN2.SetActive(true);
 
             //turn off button
             VN2No1.gameObject.SetActive(false);
             VN2Yes1.gameObject.SetActive(false);
 
+            VN2disciple.gameObject.SetActive(false);
+            VN2john.gameObject.SetActive(false);
+            VN2priest.gameObject.SetActive(false);
+
             //turn on a new image
             HowToPlay.gameObject.SetActive(true);
+
 
             //load new dialogue
             currentDialogue = PriestFinal;
@@ -370,12 +387,16 @@ namespace TESTING
             dialogueFinished = false;
             //change name tag
             johnNameTagInVN2.SetActive(false);
-            discipleTagInVN2.SetActive(true);
-            priestNameTagInVN2.SetActive(false);
+            discipleTagInVN2.SetActive(false);
+            priestNameTagInVN2.SetActive(true);
 
             //turn off button
             VN2No1.gameObject.SetActive(false);
             VN2Yes1.gameObject.SetActive(false);
+
+            VN2disciple.gameObject.SetActive(false);
+            VN2john.gameObject.SetActive(false);
+            VN2priest.gameObject.SetActive(false);
 
             //turn on a new image
             HowToPlay.gameObject.SetActive(true);
@@ -400,6 +421,8 @@ namespace TESTING
 
             //turn of image
             HowToPlay.gameObject.SetActive(false);
+            VN2john.gameObject.SetActive(true);
+            VN2priest.gameObject.SetActive(true);
 
             currentDialogue = JohnFinal;
             currentIndex = 0;
