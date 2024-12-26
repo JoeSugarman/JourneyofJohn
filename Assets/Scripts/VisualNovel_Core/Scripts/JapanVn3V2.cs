@@ -19,6 +19,10 @@ public class JapanVn3V2 : MonoBehaviour
     public UnityEngine.UI.Button JPVN3OneNo;
     public UnityEngine.UI.Button JPVN3OneContinue;
 
+    //turn off dialogue box
+    public UnityEngine.UI.Image dialogueBox;
+    public GameObject dialogueBoxText;
+
     //image switching
     public UnityEngine.UI.Image teleMount;
     public UnityEngine.UI.Image closeupmount;
@@ -514,7 +518,40 @@ public class JapanVn3V2 : MonoBehaviour
         }
         showContinueButton();
 
+        StartCoroutine(RotateBigDisciple());
+
     }
+
+    IEnumerator RotateBigDisciple() 
+    {
+        while (!dialogueFinished)
+            yield return null;
+
+        float duration = 0.5f;
+        float elapsed = 0f;
+        Quaternion initialRotation = bigdisciple.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        Vector3 initialPosition = bigjohnNew.rectTransform.localPosition;
+        Vector3 targetPosition = initialPosition + new Vector3(230, 20, 0);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            bigdisciple.rectTransform.rotation = Quaternion.Slerp(initialRotation, targetRotation, elapsed / duration);
+            
+            bigjohnNew.rectTransform.localPosition = Vector3.Lerp(initialPosition, targetPosition, elapsed / duration);
+
+            yield return null;
+        }
+
+        bigdisciple.rectTransform.rotation = targetRotation;
+        bigjohn.rectTransform.localPosition = targetPosition;
+        dialogueBox.gameObject.SetActive(false);
+        dialogueBoxText.SetActive(false);
+    }
+
+
 
     void FinalNo()
     {

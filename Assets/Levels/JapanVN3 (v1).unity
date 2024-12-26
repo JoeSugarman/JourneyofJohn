@@ -2244,6 +2244,8 @@ MonoBehaviour:
   JPVN3OneYes: {fileID: 1284415416}
   JPVN3OneNo: {fileID: 655779401}
   JPVN3OneContinue: {fileID: 1429354567}
+  dialogueBox: {fileID: 550436015}
+  dialogueText: {fileID: 1622323163}
   teleMount: {fileID: 1601569610}
   closeupmount: {fileID: 694096798}
   mochi: {fileID: 107737725}
@@ -4509,8 +4511,8 @@ RectTransform:
   m_Children:
   - {fileID: 1522269344}
   - {fileID: 68263316}
-  - {fileID: 1578919716}
   - {fileID: 2073678965}
+  - {fileID: 1578919716}
   - {fileID: 107737724}
   - {fileID: 1782729295}
   - {fileID: 2102919748}
@@ -6725,7 +6727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2073678965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6742,9 +6744,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 305.99, y: 74.24}
+  m_AnchoredPosition: {x: 305.98932, y: -408.5292}
   m_SizeDelta: {x: 340.33, y: 1057.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.4999999, y: 0.0434776}
 --- !u!114 &2073678966
 MonoBehaviour:
   m_ObjectHideFlags: 0
