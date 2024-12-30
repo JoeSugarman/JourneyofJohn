@@ -326,9 +326,14 @@ public class JapanVN4Point5 : MonoBehaviour
         }
     }
 
+    public WoodChecker woodChecker;
+
     void GoToNextScene()
     {
-        SceneManager.LoadScene(11);
+        if (woodChecker.woodCount >= 5)
+            SceneManager.LoadScene(12);
+        else
+            SceneManager.LoadScene(11);
     }
 
 }

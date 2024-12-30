@@ -223,8 +223,11 @@ public class JapanVN4 : MonoBehaviour
         }
     }
 
+
+
     void GoToNextScene()
     {
+    
         SceneManager.LoadScene(11);
     }
 
