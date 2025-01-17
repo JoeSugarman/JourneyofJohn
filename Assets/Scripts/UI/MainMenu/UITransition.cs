@@ -81,8 +81,49 @@ public class UITransition : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void GoToGMTwo()
+
+    public void GoToVNTwo()
     {
         SceneManager.LoadScene(4);
+    }
+
+    public void GoToGMTwoYes()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void GoToGMTwoNo()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void GoToVNThreeV1()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void GoToVNThreeV2()
+    {
+        SceneManager.LoadScene(8);
+    }
+
+    public void GoToVNFour()
+    {
+        SceneManager.LoadScene(9);
+    }
+
+    public void GoToVNFourPoint5()
+    {
+        SceneManager.LoadScene(10);
+    }
+
+    public void GoToVNFive()
+    {
+        SceneManager.LoadScene(11);
+    }
+
+    public void GoToVNSix()
+    {
+        SceneManager.LoadScene(12);
     }
 }

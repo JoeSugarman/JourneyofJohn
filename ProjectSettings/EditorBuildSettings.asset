@@ -26,4 +26,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/JapanGameScene2No.unity
     guid: a29c9b0532d146f419a47388e494a46e
+  - enabled: 1
+    path: Assets/Levels/JapanVN3 (v1).unity
+    guid: cb75eec1b4c374547bc471ea6ba71629
+  - enabled: 1
+    path: Assets/Levels/JapanVN3 (v2).unity
+    guid: 1d58f24f02f82b04daf1b5a6f80769e9
+  - enabled: 1
+    path: Assets/Levels/JapanVN4.unity
+    guid: 5d6fffb1f7c250f449842d5a515e6887
+  - enabled: 1
+    path: Assets/Levels/JapanVN4Point5.unity
+    guid: bc658d58d97795544b449dfa082d43c5
+  - enabled: 1
+    path: Assets/Levels/JapanVN5.unity
+    guid: e39f61febca07d449a0a9def8c82f2f1
+  - enabled: 1
+    path: Assets/Levels/JapanVN6.unity
+    guid: 29c99388f243d3a44bbf67f05d48e2a1
   m_configObjects: {}
