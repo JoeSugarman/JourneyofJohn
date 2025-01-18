@@ -2246,6 +2246,7 @@ MonoBehaviour:
   quitJobLetterImage: {fileID: 2008405774}
   leavingLetter: {fileID: 656843}
   atm: {fileID: 860402419}
+  levelToUnlock: 2
 --- !u!1 &860402417
 GameObject:
   m_ObjectHideFlags: 0

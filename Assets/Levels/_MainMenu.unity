@@ -4578,7 +4578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {x: 252, y: -78}
   pointB: {x: 252, y: -1666}
-  duration: 2
+  duration: 1
 --- !u!222 &935488967
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4601,7 +4601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {x: 252, y: -1666}
   pointB: {x: 252, y: -78}
-  duration: 3
+  duration: 1
 --- !u!1 &961758879
 GameObject:
   m_ObjectHideFlags: 0

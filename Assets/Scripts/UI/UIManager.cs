@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false); //hide the game over screen
         pauseScreen.SetActive(false); //hide the pause screen
+       // DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -43,6 +44,7 @@ public class UIManager : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0); //reload the current scene
     }
 
