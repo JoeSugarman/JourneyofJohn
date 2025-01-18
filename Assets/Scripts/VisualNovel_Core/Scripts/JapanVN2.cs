@@ -149,6 +149,7 @@ namespace TESTING
             if (VN2Continue != null)
                 VN2Continue.gameObject.SetActive(false);
 
+            
         }
 
         private int currentIndex = 0;
@@ -205,7 +206,7 @@ namespace TESTING
                 }
 
             }
-
+            levelToUnlock = chooseScene;
         }
         void enterChamber()
         {
@@ -445,10 +446,19 @@ namespace TESTING
 
         }
 
-
+        public int levelToUnlock;
         void goToNextScene()
         {
-                SceneManager.LoadScene(chooseScene);
+            if (MainMenuGameManager.Instance != null)
+            {
+                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+                {
+                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
+                    MainMenuGameManager.Instance.SaveProgress();
+                }
+            }
+
+            SceneManager.LoadScene(chooseScene);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -447,8 +448,20 @@ namespace TESTING
 
         }
 
+        
+        public int levelToUnlock=2; // The level to unlock after clicking this button
+
         void GoToNextScene()
         {
+            if (MainMenuGameManager.Instance != null)
+            {
+                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+                {
+                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
+                    MainMenuGameManager.Instance.SaveProgress();
+                }
+            }
+
             // load JPVN1
             SceneManager.LoadScene(2);
         }

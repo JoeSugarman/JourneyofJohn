@@ -646,8 +646,19 @@ namespace TESTING
             }
         }
 
+        public int levelToUnlock = 3;
+
         void GoToNextScene()
         {
+            if (MainMenuGameManager.Instance != null)
+            {
+                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+                {
+                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
+                    MainMenuGameManager.Instance.SaveProgress();
+                }
+            }
+
             SceneManager.LoadScene(3);
         }
     }

@@ -235,6 +235,7 @@ public class JapanVn3V1 : MonoBehaviour
                 }
             }
         }
+        levelToUnlock = chooseScene;
     }
 
     void DiscipleFirstSay()
@@ -574,8 +575,17 @@ public class JapanVn3V1 : MonoBehaviour
         }
     }
 
+    public int levelToUnlock;
     void GoToNextScene()
     {
+        if (MainMenuGameManager.Instance != null)
+        {
+            if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+            {
+                MainMenuGameManager.Instance.currentLevel = levelToUnlock;
+                MainMenuGameManager.Instance.SaveProgress();
+            }
+        }
         SceneManager.LoadScene(chooseScene);
     }
 }
