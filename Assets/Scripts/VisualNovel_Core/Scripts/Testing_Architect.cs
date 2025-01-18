@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-namespace TESTING
-{
+
     public class Testing_Architect : MonoBehaviour
     {
         DialogueSystem ds;
@@ -466,4 +465,4 @@ namespace TESTING
             SceneManager.LoadScene(2);
         }
     }
-}
+
