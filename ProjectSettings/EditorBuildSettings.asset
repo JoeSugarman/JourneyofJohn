@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/JapanVN6.unity
     guid: 29c99388f243d3a44bbf67f05d48e2a1
+  - enabled: 1
+    path: Assets/Levels/JapanGameScene3 (Driving).unity
+    guid: e5ac245edfa6ec646b6331bcc092e78c
   m_configObjects: {}

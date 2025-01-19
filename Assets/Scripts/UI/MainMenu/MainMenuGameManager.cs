@@ -18,6 +18,12 @@ public class MainMenuGameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Load progress when the GameManager starts
+        LoadProgress();
+    }
+
     public void SaveProgress()
     {
         PlayerPrefs.SetInt("CurrentLevel", currentLevel);
@@ -26,6 +32,7 @@ public class MainMenuGameManager : MonoBehaviour
 
     public void LoadProgress()
     {
-        currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1); 
+        currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+        Debug.Log("Progress Loaded. Current Level: " + currentLevel);
     }
 }

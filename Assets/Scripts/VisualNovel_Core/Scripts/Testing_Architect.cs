@@ -454,12 +454,14 @@ using UnityEngine.UIElements;
         {
             if (MainMenuGameManager.Instance != null)
             {
-                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+                if (levelToUnlock >= MainMenuGameManager.Instance.currentLevel)
                 {
                     MainMenuGameManager.Instance.currentLevel = levelToUnlock;
                     MainMenuGameManager.Instance.SaveProgress();
-                }
+                    Debug.Log("Current Level: " + MainMenuGameManager.Instance.currentLevel);
+
             }
+        }
 
             // load JPVN1
             SceneManager.LoadScene(2);
