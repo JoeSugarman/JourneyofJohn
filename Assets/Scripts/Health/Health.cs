@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     [Header ("Death Sound")]
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
+    public GameObject woodLog;
 
 
     private void Awake()
@@ -65,6 +66,15 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("die");
 
                 dead = true;
+                if (gameObject.name == "treeGenie1")
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        float xOffset = (i - 1) * 0.5f; // Adjust spacing between logs
+                        Vector3 spawnPosition = transform.position + new Vector3(xOffset, 1.0f, 0);
+                        Instantiate(woodLog, spawnPosition, Quaternion.identity);
+                    }
+                }
                 SoundManager.instance.PlaySound(deathSound);
             }
         }

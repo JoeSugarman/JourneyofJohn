@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf437f24f54eeec449e36ae02055a3dd
+guid: d5b10f271d562b040bfa0252dc922a55
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 330
+  spritePixelsToUnits: 180
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -147,7 +147,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: treeGenie3_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 2647
+        width: 361
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c30e36bffcefd4fb7dd254c593220a
+      internalID: 447922575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treeGenie3_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 2134
+        width: 361
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b463c31f075a78a41b3d91394d5da6f2
+      internalID: -554335282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treeGenie3_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1623
+        width: 362
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e5194a33f392d4a951890b60366ed5
+      internalID: 1079116085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treeGenie3_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1111
+        width: 362
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66a333ca38e58d40940168807951d53
+      internalID: -645888469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treeGenie3_4
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 598
+        width: 361
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d25f2500c1ac874b900726118bd372d
+      internalID: 1584127334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treeGenie3_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 81
+        width: 361
+        height: 394
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fccfa61929e0841837e326a4a0fa60
+      internalID: 76070584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +284,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      treeGenie3_0: 447922575
+      treeGenie3_1: -554335282
+      treeGenie3_2: 1079116085
+      treeGenie3_3: -645888469
+      treeGenie3_4: 1584127334
+      treeGenie3_5: 76070584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
