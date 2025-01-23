@@ -216,4 +216,4 @@ MonoBehaviour:
   - {fileID: 8938425050151736816}
   deathSound: {fileID: 8300000, guid: 33a3a70ba43d6574eae128a0288fa6d4, type: 3}
   hurtSound: {fileID: 8300000, guid: 305c1d76e2cb38644a4e2056ca0170ad, type: 3}
-  woodLog: {fileID: 0}
+  woodLog: {fileID: 8078955321295690717, guid: 97dc788e684e6254f873635c7bcf7310, type: 3}

@@ -171,9 +171,10 @@ MonoBehaviour:
   iFramesDuration: 0
   numberOfFlashes: 0
   components:
-  - {fileID: 2019569980590628223}
+  - {fileID: 4481361958131091698}
   deathSound: {fileID: 8300000, guid: 33a3a70ba43d6574eae128a0288fa6d4, type: 3}
   hurtSound: {fileID: 8300000, guid: 305c1d76e2cb38644a4e2056ca0170ad, type: 3}
+  woodLog: {fileID: 0}
 --- !u!114 &4481361958131091698
 MonoBehaviour:
   m_ObjectHideFlags: 0
