@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  woodLog: {fileID: 8078955321295690717, guid: 97dc788e684e6254f873635c7bcf7310, type: 3}
+  woodLog: {fileID: 8766297083764479888, guid: 021fa67d0362e6b458a5921ad872d1db, type: 3}
   collectibleCount: 3
 --- !u!50 &5448768177350244654
 Rigidbody2D:
@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -147,7 +147,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1

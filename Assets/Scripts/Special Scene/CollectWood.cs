@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectWood : MonoBehaviour
 {
-    public WoodChecker woodChecker;
+    private SpecialSceneGameManager gameManager;
+
+    private void Start()
+    {
+        // Find the GameManager in the scene
+        gameManager = FindObjectOfType<SpecialSceneGameManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Get the log");
-            woodChecker.CollectWood();
+            gameManager.IncrementCounter();
+
             Destroy(gameObject);
         }
     }
-
-
 }

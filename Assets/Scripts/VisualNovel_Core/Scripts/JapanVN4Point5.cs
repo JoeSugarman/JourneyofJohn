@@ -111,7 +111,7 @@ public class JapanVN4Point5 : MonoBehaviour
         currentDialogue = johnFirstDialogue;
 
         //button
-        JPVN4point5Continue.onClick.AddListener(GoToNextScene);
+        //JPVN4point5Continue.onClick.AddListener(GoToNextScene);
     }
 
     private int currentIndex = 0;
@@ -326,15 +326,15 @@ public class JapanVN4Point5 : MonoBehaviour
         }
     }
 
-    public WoodChecker woodChecker;
+    //public WoodChecker woodChecker;
 
-    void GoToNextScene()
-    {
-        if (woodChecker.woodCount >= 5)
-            SceneManager.LoadScene(12);
-        else
-            SceneManager.LoadScene(11);
-    }
+    //void GoToNextScene()
+    //{
+    //    if (woodChecker.woodCount >= 5)
+    //        SceneManager.LoadScene(12);
+    //    else
+    //        SceneManager.LoadScene(11);
+    //}
 
 }
 
