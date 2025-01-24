@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8766297083764479888
+--- !u!1 &5635829005513585647
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2746078328129986777}
-  - component: {fileID: 1270189985729799484}
-  - component: {fileID: 3947788934720861174}
-  - component: {fileID: 4121154402985448089}
-  - component: {fileID: 375587971469228733}
-  m_Layer: 0
-  m_Name: woodlog2
-  m_TagString: Untagged
+  - component: {fileID: 2683758150239350710}
+  - component: {fileID: 8447662899499778149}
+  - component: {fileID: 1441046321208376552}
+  - component: {fileID: 1454387037849420486}
+  - component: {fileID: 5448768177350244654}
+  - component: {fileID: 3891270984809108204}
+  - component: {fileID: 2459986079266545069}
+  m_Layer: 11
+  m_Name: treeGenie3
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2746078328129986777
+--- !u!4 &2683758150239350710
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766297083764479888}
+  m_GameObject: {fileID: 5635829005513585647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.7, y: -13.81, z: 0}
-  m_LocalScale: {x: 0.3918, y: 0.3918, z: 0.3918}
+  m_LocalPosition: {x: -50.05, y: -54.6347, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1270189985729799484
+--- !u!212 &8447662899499778149
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766297083764479888}
+  m_GameObject: {fileID: 5635829005513585647}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,41 +75,64 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1321228533
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3e9a4ddd91f38b3409094e4fc0537df8, type: 3}
+  m_Sprite: {fileID: -554335282, guid: d5b10f271d562b040bfa0252dc922a55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11, y: 1.57}
+  m_Size: {x: 2.0055556, y: 2.1854675}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3947788934720861174
+--- !u!95 &1441046321208376552
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635829005513585647}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c81c41b1b0d35c468eff9bbc4759e8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1454387037849420486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766297083764479888}
+  m_GameObject: {fileID: 5635829005513585647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e5f370045d77d40a587939ee8493a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b8805ad7de51ef47a064f172b92354d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodChecker: {fileID: 0}
---- !u!50 &4121154402985448089
+  speed: 2
+  woodLog: {fileID: 8078955321295690717, guid: 97dc788e684e6254f873635c7bcf7310, type: 3}
+  collectibleCount: 3
+--- !u!50 &5448768177350244654
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766297083764479888}
+  m_GameObject: {fileID: 5635829005513585647}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -126,14 +151,14 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!61 &375587971469228733
+  m_Constraints: 4
+--- !u!61 &3891270984809108204
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766297083764479888}
+  m_GameObject: {fileID: 5635829005513585647}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -159,16 +184,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004887581, y: 0.019521222}
+  m_Offset: {x: 0, y: 0.9950485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4, y: 0.628}
-    newSize: {x: 11, y: 1.57}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.805, y: 1.9669209}
+    newSize: {x: 2.0055556, y: 2.1854675}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.389122, y: 0.68550646}
+  m_Size: {x: 2.1, y: 1.990097}
   m_EdgeRadius: 0
+--- !u!114 &2459986079266545069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635829005513585647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b4beaa914a687499b5b119cfc0ee80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  iFramesDuration: 0.1
+  numberOfFlashes: 3
+  components:
+  - {fileID: 1454387037849420486}
+  deathSound: {fileID: 8300000, guid: 33a3a70ba43d6574eae128a0288fa6d4, type: 3}
+  hurtSound: {fileID: 8300000, guid: 305c1d76e2cb38644a4e2056ca0170ad, type: 3}
+  woodLog: {fileID: 8766297083764479888, guid: 021fa67d0362e6b458a5921ad872d1db, type: 3}
