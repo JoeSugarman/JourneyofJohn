@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Timer : MonoBehaviour
             remainTime = 0;
             Time.timeScale = 0;
             SoundManager.instance.PlaySound(timeIsUp);
+            StartCoroutine(CheckCollectibleCountAfterDelay(2f));
+
+
         }
         else if (remainTime > 0)
             remainTime -= Time.deltaTime;
@@ -28,4 +32,22 @@ public class Timer : MonoBehaviour
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    private IEnumerator CheckCollectibleCountAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        
+        int collectibleCount = FindObjectOfType<SpecialSceneGameManager>().collectibleCount;
+
+        if(collectibleCount > 5)
+        {
+            SceneManager.LoadScene(11);
+        }
+        else
+        {
+            SceneManager.LoadScene(10);
+        }
+
+    }
+
 }

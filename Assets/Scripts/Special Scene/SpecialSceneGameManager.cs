@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpecialSceneGameManager : MonoBehaviour
 {
-    private int collectibleCount = 0;
+    public int collectibleCount = 0;
 
     // Start is called before the first frame update
     void Start()

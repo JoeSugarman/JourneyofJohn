@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/JapanGameScene3 (Not Driving).unity
     guid: 7fa22084d0ecbb941b74a095740ff0dd
+  - enabled: 1
+    path: Assets/Levels/JapanGameScene4.5.unity
+    guid: a0993ce8d993c0145959c8a26c48db49
   m_configObjects: {}

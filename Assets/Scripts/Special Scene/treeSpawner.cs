@@ -5,7 +5,7 @@ public class treeSpawner : MonoBehaviour
 {
     public GameObject[] treePrefabs;
     public float spawnRangeX = 5f;
-    public float spawnDuration = 20f;
+    public float spawnDuration = 80f;
     public float spawnInterval = 2.5f;
 
     private float elapsedTime = 0f;
