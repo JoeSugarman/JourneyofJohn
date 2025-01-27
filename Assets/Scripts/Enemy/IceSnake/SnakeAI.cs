@@ -6,9 +6,11 @@ public class SnakeAI : MonoBehaviour
 {
     public float moveSpeed;
     public GameObject[] wayPoints;
+    public int damage = 1;
 
     int NextWayPoint = 1;
     float distToPoint;
+    private Health playerHealth;
 
     // Update is called once per frame
     void Update()
@@ -43,6 +45,15 @@ public class SnakeAI : MonoBehaviour
         if(NextWayPoint == wayPoints.Length)
         {
             NextWayPoint = 0;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerHealth = collision.GetComponent<Health>();
+            playerHealth.TakeDamage(damage);
         }
     }
 }
