@@ -19,10 +19,10 @@ TagManager:
   - Ground
   - Wall
   - 
-  - 
+  - chain
   - Player
   - Enemy
-  - 
+  - special
   - EnemyObsticle
   - 
   - 
