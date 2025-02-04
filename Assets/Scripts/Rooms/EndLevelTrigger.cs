@@ -6,6 +6,7 @@ public class EndLevelTrigger : MonoBehaviour
 {
     [SerializeField] AudioClip endLevelSound;
     [SerializeField] int nextLevelIndex;
+    [SerializeField] int nextLevelToUnlock;
     private AudioSource audioSource;
     private bool isTriggered = false;
 
@@ -33,6 +34,8 @@ public class EndLevelTrigger : MonoBehaviour
         //play sound
         audioSource.Play();
 
+        GameProgress.Instance.UnlockLevel(nextLevelToUnlock);
+
         //load next level after the sound has finished playing
         StartCoroutine(LoadNextSceneAfterDelay(audioSource.clip.length));
     }
@@ -40,7 +43,7 @@ public class EndLevelTrigger : MonoBehaviour
     private IEnumerator LoadNextSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-       //SceneManager.LoadScene(nextLevelIndex);
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(nextLevelIndex);
+       //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

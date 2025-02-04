@@ -450,21 +450,16 @@ using UnityEngine.UIElements;
         
         public int levelToUnlock=2; // The level to unlock after clicking this button
 
-        void GoToNextScene()
+    void GoToNextScene()
+    {
+        //MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
+        if (MainMenuManager.Instance != null)
         {
-            if (MainMenuGameManager.Instance != null)
-            {
-                if (levelToUnlock >= MainMenuGameManager.Instance.currentLevel)
-                {
-                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                    MainMenuGameManager.Instance.SaveProgress();
-                    Debug.Log("Current Level: " + MainMenuGameManager.Instance.currentLevel);
-
-            }
+            MainMenuManager.Instance.isVS1Unlocked = true;
         }
 
-            // load JPVN1
-            SceneManager.LoadScene(2);
-        }
+        // load JPVN1
+        SceneManager.LoadScene(2);
+    }
     }
 
