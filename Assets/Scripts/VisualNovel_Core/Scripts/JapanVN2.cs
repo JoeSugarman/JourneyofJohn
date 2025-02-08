@@ -449,12 +449,14 @@ namespace TESTING
         public int levelToUnlock;
         void goToNextScene()
         {
-            if (MainMenuGameManager.Instance != null)
+            if (MainMenuManager.Instance != null)
             {
-                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
+                if (MainMenuManager.Instance != null)
                 {
-                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                    MainMenuGameManager.Instance.SaveProgress();
+                    if (levelToUnlock == 5)
+                        MainMenuManager.Instance.isGS2Point1Unlocked = true;
+                    else if (levelToUnlock == 6)
+                        MainMenuManager.Instance.isGS2Point2Unlocked = true;
                 }
             }
 

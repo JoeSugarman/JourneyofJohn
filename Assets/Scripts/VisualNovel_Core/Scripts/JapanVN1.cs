@@ -650,13 +650,9 @@ namespace TESTING
 
         void GoToNextScene()
         {
-            if (MainMenuGameManager.Instance != null)
+            if (MainMenuManager.Instance != null)
             {
-                if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
-                {
-                    MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                    MainMenuGameManager.Instance.SaveProgress();
-                }
+                MainMenuManager.Instance.isGS1Unlocked = true;
             }
 
             SceneManager.LoadScene(3);

@@ -495,7 +495,7 @@ public class JapanVn3V1 : MonoBehaviour
     private int chooseScene;
         void FinalYes()
     {
-        chooseScene = 9;
+        chooseScene = 13;
 
         dialogueFinished = false;
         currentDialogue = finalYes;
@@ -547,7 +547,7 @@ public class JapanVn3V1 : MonoBehaviour
 
     void FinalNo()
     {
-        chooseScene = 10;
+        chooseScene = 16;
 
         JPVN3OneYes.gameObject.SetActive(false);
         JPVN3OneNo.gameObject.SetActive(false);
@@ -578,13 +578,12 @@ public class JapanVn3V1 : MonoBehaviour
     public int levelToUnlock;
     void GoToNextScene()
     {
-        if (MainMenuGameManager.Instance != null)
+        if (MainMenuManager.Instance != null)
         {
-            if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
-            {
-                MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                MainMenuGameManager.Instance.SaveProgress();
-            }
+            if(levelToUnlock==13)
+                MainMenuManager.Instance.isGS3Point1Unlocked = true;
+            else if (levelToUnlock == 16)
+                MainMenuManager.Instance.isGS3Point2Unlocked = true;
         }
         SceneManager.LoadScene(chooseScene);
     }

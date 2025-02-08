@@ -52956,6 +52956,10 @@ PrefabInstance:
       propertyPath: nextLevelIndex
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7957512547867732364, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
+      propertyPath: nextLevelToUnlock
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

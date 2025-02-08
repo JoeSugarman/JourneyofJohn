@@ -18,6 +18,11 @@ public class EndLevelTrigger : MonoBehaviour
         audioSource.clip = endLevelSound;
     }
 
+    private void Update()
+    {
+        //nextLevelToUnlock = chooseScene;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(isTriggered || !other.CompareTag("Player")) return;
@@ -44,6 +49,19 @@ public class EndLevelTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(nextLevelIndex);
-       //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene1")
+            MainMenuManager.Instance.isVS2Unlocked = true;
+        else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene2No")
+            MainMenuManager.Instance.isVS3Point2Unlocked = true;
+        else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene2Yes")
+            MainMenuManager.Instance.isVS3Point1Unlocked = true;
+        else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene3 (Driving)")
+            MainMenuManager.Instance.isVS4Unlocked = true;
+        else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene3 (Not Driving)")
+            MainMenuManager.Instance.isVS4Unlocked = true;
+        else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene5")
+            MainMenuManager.Instance.isVSFinalUnlocked = true;
+
     }
 }

@@ -4623,6 +4623,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextSceneTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7957512547867732364, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
+      propertyPath: nextLevelIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957512547867732364, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
+      propertyPath: nextLevelToUnlock
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

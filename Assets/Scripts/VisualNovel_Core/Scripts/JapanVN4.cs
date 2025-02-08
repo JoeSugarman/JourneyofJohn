@@ -223,19 +223,15 @@ public class JapanVN4 : MonoBehaviour
         }
     }
 
-    public int levelToUnlock = 11;
+    public int levelToUnlock = 15;
 
     void GoToNextScene()
     {
-        if (MainMenuGameManager.Instance != null)
+        if (MainMenuManager.Instance != null)
         {
-            if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
-            {
-                MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                MainMenuGameManager.Instance.SaveProgress();
-            }
+            MainMenuManager.Instance.isGS4Unlocked = true;
         }
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(15);
     }
 
 }

@@ -405,20 +405,16 @@ public class JapanVN5 : MonoBehaviour
         }
     }
 
-    public int levelToUnlock = 13;
+    public int levelToUnlock = 14;
 
     void GoToNextScene()
     {
-        if (MainMenuGameManager.Instance != null)
+        if (MainMenuManager.Instance != null)
         {
-            if (levelToUnlock > MainMenuGameManager.Instance.currentLevel)
-            {
-                MainMenuGameManager.Instance.currentLevel = levelToUnlock;
-                MainMenuGameManager.Instance.SaveProgress();
-            }
+            MainMenuManager.Instance.isGS5Unlocked = true;
         }
 
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(14);
     }
 
 }
