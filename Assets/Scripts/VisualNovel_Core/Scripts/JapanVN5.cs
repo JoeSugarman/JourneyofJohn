@@ -114,6 +114,7 @@ public class JapanVN5 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         ds = DialogueSystem.instance;
         architect = new TextArchitect(ds.dialogueContainer.dialogueText);
         architect.buildMethod = TextArchitect.BuildMethod.typewriter;

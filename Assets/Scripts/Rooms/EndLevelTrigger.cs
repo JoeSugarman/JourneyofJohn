@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class EndLevelTrigger : MonoBehaviour
     [SerializeField] int nextLevelToUnlock;
     private AudioSource audioSource;
     private bool isTriggered = false;
+    public Animator transition;
+    public float transitionTime = 1f;
 
 
     // Start is called before the first frame update
@@ -63,5 +66,20 @@ public class EndLevelTrigger : MonoBehaviour
         else if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene5")
             MainMenuManager.Instance.isVSFinalUnlocked = true;
 
+    }
+
+    public void LoadNextLevelWithAnimation()
+    {
+
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        //play 
+        transition.SetTrigger("Start");
+        //wait
+        yield return new WaitForSeconds(transitionTime);
+
+        //load level
     }
 }
