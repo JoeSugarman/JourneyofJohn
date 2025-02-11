@@ -453,6 +453,31 @@ using UnityEngine.UIElements;
     void GoToNextScene()
     {
         //MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
+        //if (MainMenuManager.Instance != null)
+        //{
+        //    MainMenuManager.Instance.isVS1Unlocked = true;
+        //}
+
+        //// load JPVN1
+        //SceneManager.LoadScene(2);
+        StartCoroutine(FadeOutAndLoadScene());
+    }
+    [SerializeField] private CanvasGroup transitionPanel;
+    private IEnumerator FadeOutAndLoadScene()
+    {
+        float duration = 1.5f;
+        float time = 0f;
+        float startAlpha = transitionPanel.alpha;
+        float targetAlpha = 1f;
+
+        while (time < duration)
+        {
+            transitionPanel.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        //MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
         if (MainMenuManager.Instance != null)
         {
             MainMenuManager.Instance.isVS1Unlocked = true;
@@ -460,6 +485,8 @@ using UnityEngine.UIElements;
 
         // load JPVN1
         SceneManager.LoadScene(2);
+
     }
+
     }
 

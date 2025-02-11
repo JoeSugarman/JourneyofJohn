@@ -449,6 +449,37 @@ namespace TESTING
         public int levelToUnlock;
         void goToNextScene()
         {
+            //if (MainMenuManager.Instance != null)
+            //{
+            //    if (MainMenuManager.Instance != null)
+            //    {
+            //        if (levelToUnlock == 5)
+            //            MainMenuManager.Instance.isGS2Point1Unlocked = true;
+            //        else if (levelToUnlock == 6)
+            //            MainMenuManager.Instance.isGS2Point2Unlocked = true;
+            //    }
+            //}
+
+            //SceneManager.LoadScene(chooseScene);
+            StartCoroutine(FadeOutAndLoadScene());
+        }
+
+        [SerializeField] private CanvasGroup transitionPanel;
+
+        private IEnumerator FadeOutAndLoadScene()
+        {
+            float duration = 1.5f;
+            float time = 0f;
+            float startAlpha = transitionPanel.alpha;
+            float targetAlpha = 1f;
+
+            while (time < duration)
+            {
+                transitionPanel.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+                time += Time.deltaTime;
+                yield return null;
+            }
+
             if (MainMenuManager.Instance != null)
             {
                 if (MainMenuManager.Instance != null)

@@ -578,13 +578,43 @@ public class JapanVn3V1 : MonoBehaviour
     public int levelToUnlock;
     void GoToNextScene()
     {
+        //if (MainMenuManager.Instance != null)
+        //{
+        //    if(levelToUnlock==13)
+        //        MainMenuManager.Instance.isGS3Point1Unlocked = true;
+        //    else if (levelToUnlock == 16)
+        //        MainMenuManager.Instance.isGS3Point2Unlocked = true;
+        //}
+        //SceneManager.LoadScene(chooseScene);
+
+        StartCoroutine(FadeOutAndLoadSCene());
+    }
+
+    [SerializeField] private CanvasGroup transitionPanel;
+    private IEnumerator FadeOutAndLoadSCene()
+    {
+
+        float duration = 1.5f;
+        float time = 0f;
+        float startAlpha = transitionPanel.alpha;
+        float targetAlpha = 1f;
+
+        while (time < duration)
+        {
+            transitionPanel.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
         if (MainMenuManager.Instance != null)
         {
-            if(levelToUnlock==13)
+            if (levelToUnlock == 13)
                 MainMenuManager.Instance.isGS3Point1Unlocked = true;
             else if (levelToUnlock == 16)
                 MainMenuManager.Instance.isGS3Point2Unlocked = true;
         }
         SceneManager.LoadScene(chooseScene);
     }
+
+
 }

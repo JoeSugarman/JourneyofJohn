@@ -410,6 +410,31 @@ public class JapanVN5 : MonoBehaviour
 
     void GoToNextScene()
     {
+        //if (MainMenuManager.Instance != null)
+        //{
+        //    MainMenuManager.Instance.isGS5Unlocked = true;
+        //}
+
+        //SceneManager.LoadScene(14);
+
+        StartCoroutine(FadeOutAndLoadScene());
+    }
+
+    [SerializeField] private CanvasGroup transitionPanel;
+
+    private IEnumerator FadeOutAndLoadScene()
+    {
+        float duration = 1.5f;
+        float time = 0f;
+        float startAlpha = transitionPanel.alpha;
+        float targetAlpha = 1f;
+
+        while (time < duration)
+        {
+            transitionPanel.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
         if (MainMenuManager.Instance != null)
         {
             MainMenuManager.Instance.isGS5Unlocked = true;
@@ -418,4 +443,4 @@ public class JapanVN5 : MonoBehaviour
         SceneManager.LoadScene(14);
     }
 
-}
+    }

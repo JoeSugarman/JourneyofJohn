@@ -56,7 +56,7 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    void Start() 
+    void LateUpdate() 
     {
         ISVS1Unlocked();
         ISVS2Unlocked();
@@ -321,6 +321,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void resetAllLevel()
     {
+        Debug.Log("Resetting all levels");
         isVSIntroUnlocked = true;
         isVS1Unlocked = false;
         isVS2Unlocked = false;
@@ -339,6 +340,8 @@ public class MainMenuManager : MonoBehaviour
         isGS5Unlocked = false;
 
         SaveUnlockStates();
+        AssignButtonReferences();
+        UpdateButtonStates();
     }
 
     //private void Start()
