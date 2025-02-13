@@ -215,7 +215,7 @@ namespace TESTING
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 if (architect.isBuilding)
                 {

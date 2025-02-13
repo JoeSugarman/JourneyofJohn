@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     //trail renderer
     private TrailRenderer trailRenderer;
     private Rigidbody2D rb;
+    PlayerAction controls;
 
 
     private void Awake()
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        controls = new PlayerAction();
     }
 
     private void Start()
@@ -106,7 +109,10 @@ public class PlayerMovement : MonoBehaviour
         //}
 
         //jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (//Input.GetKeyDown(KeyCode.Space)
+
+            Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.JoystickButton0)//|| Input.GetButtonDown("Jump")
+            )
         {
             Jump();
         }

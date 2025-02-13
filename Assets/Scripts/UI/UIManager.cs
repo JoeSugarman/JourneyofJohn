@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class UIManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen; //reference to the pause screen
 
+    PlayerAction controlst;
+
     private void Awake()
     {
         gameOverScreen.SetActive(false); //hide the game over screen
         pauseScreen.SetActive(false); //hide the pause screen
        // DontDestroyOnLoad(gameObject);
+       controlst = new PlayerAction();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (//Input.GetButtonDown("CallPauseMenu"))
+            Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.JoystickButton6)|| Input.GetButtonDown("CallPauseMenu"))
         {
             if(pauseScreen.activeInHierarchy)
                 PauseGame(false); //toggle the pause screen

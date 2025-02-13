@@ -120,7 +120,7 @@ public class JapanVN4Point5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 if (architect.isBuilding)
                 {
@@ -288,6 +288,9 @@ public class JapanVN4Point5 : MonoBehaviour
         //turn on eating video
         videoEating.SetActive(true);
         dieJohn.gameObject.SetActive(false);
+
+        discipleNameTagVN4point5.SetActive(false);
+        johnNameTagVN4point5.SetActive(true);
 
         dialogueFinished = false;
         currentDialogue = nyumnyum;
