@@ -30,10 +30,18 @@ public class flyingBird : MonoBehaviour
                 anim.SetTrigger("flying");
             }
         }
+        
 
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Fireball"))
+        {
+            anim.SetTrigger("Die");
+        }
+    }
 
     private bool PlayerInsight()
     {
