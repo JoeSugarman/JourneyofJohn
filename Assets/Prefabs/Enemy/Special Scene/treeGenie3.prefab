@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -554335282, guid: d5b10f271d562b040bfa0252dc922a55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  raycastDistance: 0.5
   woodLog: {fileID: 8766297083764479888, guid: 021fa67d0362e6b458a5921ad872d1db, type: 3}
   collectibleCount: 3
 --- !u!50 &5448768177350244654

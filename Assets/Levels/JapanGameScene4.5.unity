@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: treeGenie2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6876226320863581832, guid: fc48162d053fa964d97d0e40bb20d7fd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -657,6 +661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform(playerdontmove) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -713,6 +721,10 @@ PrefabInstance:
     - target: {fileID: 990146272896572880, guid: fc48162d053fa964d97d0e40bb20d7fd, type: 3}
       propertyPath: m_Name
       value: treeGenie2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876226320863581832, guid: fc48162d053fa964d97d0e40bb20d7fd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1125,6 +1137,10 @@ PrefabInstance:
     - target: {fileID: 7404729183029436523, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2152,6 +2168,10 @@ PrefabInstance:
     - target: {fileID: 7404729183029436523, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Name
       value: Moving Platform(playerdontmove) (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43309,6 +43329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: treeGenie1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8108052361753095501, guid: ab442611154938542ab17cdea7c52bc7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43551,6 +43575,10 @@ PrefabInstance:
     - target: {fileID: 6100739214909777346, guid: ab442611154938542ab17cdea7c52bc7, type: 3}
       propertyPath: m_Name
       value: treeGenie1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108052361753095501, guid: ab442611154938542ab17cdea7c52bc7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44096,6 +44124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform(playerdontmove) (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44443,6 +44475,10 @@ PrefabInstance:
     - target: {fileID: 7404729183029436523, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44862,6 +44898,10 @@ PrefabInstance:
     - target: {fileID: 5635829005513585647, guid: e043b714c9e11b244901d0f1bff464d9, type: 3}
       propertyPath: m_Name
       value: treeGenie3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447662899499778149, guid: e043b714c9e11b244901d0f1bff464d9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45876,6 +45916,10 @@ PrefabInstance:
     - target: {fileID: 7404729183029436523, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Name
       value: Moving Platform(playerdontmove) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661247244889092975, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
