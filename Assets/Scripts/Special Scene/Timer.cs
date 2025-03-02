@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
         
         int collectibleCount = FindObjectOfType<SpecialSceneGameManager>().collectibleCount;
 
-        if(collectibleCount > 30)
+        if(collectibleCount > 20)
         {
             SceneManager.LoadScene(11);
         }
