@@ -31,6 +31,9 @@ public class EndLevelTrigger : MonoBehaviour
         if(isTriggered || !other.CompareTag("Player")) return;
 
         isTriggered = true;
+        
+        if(isTriggered)
+            Debug.Log("End level trigger");
 
         //freeze player
         PlayerMovement player = other.GetComponent<PlayerMovement>();
@@ -50,8 +53,14 @@ public class EndLevelTrigger : MonoBehaviour
 
     private IEnumerator LoadNextSceneAfterDelay(float delay)
     {
+        Debug.Log("Waiting for " + delay + " seconds before loading next scene.");
+        //if(Time.timeScale == 0)
+        //{
+        //    Time.timeScale = 1;
+        //}
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(nextLevelIndex);
+
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         if (MainMenuManager.Instance != null && SceneManager.GetActiveScene().name == "JapanGameScene1")
             MainMenuManager.Instance.isVS2Unlocked = true;
