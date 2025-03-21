@@ -71,12 +71,12 @@ public class MeleeEnemy : MonoBehaviour
         return hit.collider != null;
     }
 
-    private void OnDrawGizmos() // Draw the boxcast in the scene view
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
-    }
+    //private void OnDrawGizmos() // Draw the boxcast in the scene view
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+    //        new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+    //}
 
     private void DamagePlayer()
     {

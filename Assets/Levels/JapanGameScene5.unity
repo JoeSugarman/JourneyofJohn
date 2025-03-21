@@ -1933,6 +1933,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPatrol (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4172937798304393726, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603905400493368518, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8985077112977067215, guid: 434d569d16917354d82d52e109209cc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 230.99
@@ -4618,6 +4626,10 @@ PrefabInstance:
     - target: {fileID: 2038380142642845527, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912940330983018812, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3912940330983018812, guid: b4040120dd4da744ca62847c89cddbd4, type: 3}
       propertyPath: m_Name
@@ -8814,6 +8826,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514904701607833989, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 194.2
@@ -8853,6 +8869,10 @@ PrefabInstance:
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737695337804269828, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5528953436877007102, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Sprite
@@ -11888,6 +11908,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514904701607833989, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 101.09
@@ -11927,6 +11951,10 @@ PrefabInstance:
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737695337804269828, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5528953436877007102, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Sprite
@@ -16201,6 +16229,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPatrol (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4172937798304393726, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603905400493368518, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8985077112977067215, guid: 434d569d16917354d82d52e109209cc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 209.3
@@ -18692,6 +18728,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514904701607833989, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 194.2
@@ -18731,6 +18771,10 @@ PrefabInstance:
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737695337804269828, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5528953436877007102, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Sprite
@@ -74650,6 +74694,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514904701607833989, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 101.09
@@ -74689,6 +74737,10 @@ PrefabInstance:
     - target: {fileID: 1878171041358280174, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737695337804269828, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5528953436877007102, guid: e239ab15d77bf854887283f5a94d7f02, type: 3}
       propertyPath: m_Sprite
@@ -74922,6 +74974,14 @@ PrefabInstance:
     - target: {fileID: 3773855876607684173, guid: 434d569d16917354d82d52e109209cc8, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172937798304393726, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603905400493368518, guid: 434d569d16917354d82d52e109209cc8, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8985077112977067215, guid: 434d569d16917354d82d52e109209cc8, type: 3}
       propertyPath: m_LocalPosition.x
