@@ -23,12 +23,16 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip hurtSound;
     public GameObject woodLog;
 
+    [Header("cart")]
+    [SerializeField] private GameObject playerwithcart;
+   
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+
     }
     public void TakeDamage(float _damage) { 
         if(invulnerable) return;
@@ -117,6 +121,11 @@ public class Health : MonoBehaviour
         {
             component.enabled = true;
         }
+
+        //GameObject cart = GameObject.Find("Cart");
+        GameObject cart = GameObject.Find("cart");
+        if(cart != null)
+            Destroy(cart);
     }
     private IEnumerator Invunerability()
     {
