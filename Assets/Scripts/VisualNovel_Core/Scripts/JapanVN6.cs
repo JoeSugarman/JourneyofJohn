@@ -442,7 +442,7 @@ public class JapanVN6 : MonoBehaviour
 
     void GoToNextScene()
     {
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene(0);
     }
 
     void PriestFifthDialogue()
