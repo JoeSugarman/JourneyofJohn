@@ -47,7 +47,9 @@ public class JapanVn3V1 : MonoBehaviour
     //Disciple first dialogue
     string[] discipleFirstSay = new string[]
     {
-        "John, we finally arrive the top of the mountain."
+        "John, we finally arrive the top of the mountain.",
+        "I help you a lot right?",
+        "Sometimes I help you to push the merge box when you need help"
         
     };
 
@@ -59,9 +61,11 @@ public class JapanVn3V1 : MonoBehaviour
     string[] johnFirstSay = new string[]
     {
         "Yes sure, please, I nearly die when I jump up here.",
+        "Do you know why?",
+        "Coz you keep trying to kill me!!!",
+        "Everytime you suddenly appear in front of me, and blocking my way when I was jumping.",
         "I need to take some rest.",
-        "I am so tired.",
-        "And I'm so hungry now :)"
+        "I am so tired and hungry now."
     };
 
     //load related picture at the same time
@@ -84,7 +88,7 @@ public class JapanVn3V1 : MonoBehaviour
     string[] johnSecondSaySenbei = new string[]
     {
         "Hummm, I want Senbei.",
-        "I feel like I'm a ninja now."
+        "I need to heal myself."
     };
 
     string[] johnSecondSayUmeboshi = new string[]
@@ -96,7 +100,7 @@ public class JapanVn3V1 : MonoBehaviour
     string[] johnSecondSayMochi = new string[]
     {
         "Hummm, I want mochi.",
-        "I'm very low blood sugar now."
+        "My HP is super low now."
     };
     //---------------------------------------
 
@@ -108,8 +112,7 @@ public class JapanVn3V1 : MonoBehaviour
 
     string[] johnThirdSay = new string[]
     {
-        "Thank you, disciple.",
-        "BTW, how can we go down the mountain, we have walked a day already.",
+        "By the way, how can we go down the mountain, we have walked a day already.",
         "The sky is getting dark, and we don't have tent, we need to arrive the forest as soon as possible."
     };
 
